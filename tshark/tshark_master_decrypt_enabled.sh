@@ -1,6 +1,6 @@
 #!/bin/bash
 # T-Shark Master
-# Author: Brett S
+# Author: bmshema
 # v1.6
 #
 #  ¯\_(ツ)_/¯
