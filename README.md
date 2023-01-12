@@ -20,3 +20,5 @@ Takes input from packet captures collected from two separate locations and ident
 ### regretfulRaven.sh:
 Takes input for network SSID and hashcat mode 22000 file and executes a mask attack with Hashcat to exploit Netgear AT&T hotspot default credentials.
 
+### pcapfix_all:
+Runs pcapfix deep scan on all pcaps within a directory, moving the original corrupt pcaps to the "busted" directory.
