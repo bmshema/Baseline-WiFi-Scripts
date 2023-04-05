@@ -10,13 +10,11 @@
 # Outputs to csv file with column headers
 #
 # Dependencies: TShark
-# Usage: Run in a folder full of packet captures and answer the two prompts regarding SSID and passphrase
+# Usage: Run in a directory containing packet captures and answer the two prompts regarding SSID and passphrase
 # of the subject network.
 #
 # Resulting csv files can be imported to network mapping software
 #
-
-
 shark () {
     for f in *.*cap*; do
         tshark -r $f -o wlan.enable_decryption:TRUE -o "uat:80211_keys:\"wpa-pwd\",\"$PW:$SSID\"" -Y "wlan.bssid && !(wlan.fc.type_subtype==4 || wlan.fc.type_subtype==5 || wlan.fc.type_subtype==8) && !(wlan.bssid==wlan.sa)" -T fields -e wlan.bssid -e wlan.sa -E separator=, -E header=y >> clients.csv
