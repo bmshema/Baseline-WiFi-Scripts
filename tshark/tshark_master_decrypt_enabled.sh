@@ -27,6 +27,7 @@ shark () {
         tshark -r $f -o wlan.enable_decryption:TRUE -o "uat:80211_keys:\"wpa-pwd\",\"$PW:$SSID\"" -Y "dns.flags.response==1 && mdns" -T fields -e wlan.sa -e dns.ptr.domain_name -E separator=, -E header=y >> mdns.csv
         tshark -r $f -o wlan.enable_decryption:TRUE -o "uat:80211_keys:\"wpa-pwd\",\"$PW:$SSID\"" -Y "wlan.fc.type_subtype==4" -T fields -e wlan.sa -e wlan.ssid -E separator=, -E header=y >> probes.csv
         tshark -r $f -o wlan.enable_decryption:TRUE -o "uat:80211_keys:\"wpa-pwd\",\"$PW:$SSID\"" -Y "wlan.fc.type_subtype==5 || wlan.fc.type_subtype==8" -T fields -e wlan.bssid -e wlan.ssid -e wlan.ds.current_channel -e wps.wifi_protected_setup_state -e wps.manufacturer -e wps.model_name -e wps.model_number -e wps.serial_number -e wps.device_name -e wlan.fixed.capabilities.privacy -e wlan.rsn.gcs.type -e wlan.rsn.pcs.type -e wlan.rsn.akms.type -E separator=, -E header=y >> accesspoints.csv
+        tshark -r $f -o wlan.enable_decryption:TRUE -o "uat:80211_keys:\"wpa-pwd\",\"$PW:$SSID\"" -Y "icmp" -T fields -e wlan.sa -e ip.src -e ip.dst -e icmp.type -E separator=, -E header=y >> icmp.csv
     done
 }
 
@@ -41,8 +42,9 @@ cleanup () {
     cat mdns.csv | sort | uniq >> mdns2.csv
     cat probes.csv | sort | uniq >> probes2.csv
     cat accesspoints.csv | sort | uniq >> accesspoints2.csv
+    cat imcp.csv | sort | uniq >> icmp2.csv
 
-    rm -rf clients.csv dhcpserver.csv dhcpclients.csv arpreply.csv dnsclients.csv httpclients.csv browser.csv mdns.csv probes.csv accesspoints.csv
+    rm -rf clients.csv dhcpserver.csv dhcpclients.csv arpreply.csv dnsclients.csv httpclients.csv browser.csv mdns.csv probes.csv accesspoints.csv icmp.csv
 }
 
 echo "$(tput setaf 3)What is the SSID of the target network?"
