@@ -1,4 +1,4 @@
-# Random-WiFi-Scripts
+# WiFi-Scripts
 Some baseline scripts for Wi-Fi Analysis, network mapping, and enrichment.
 
 ### tshark-master*.sh: 
