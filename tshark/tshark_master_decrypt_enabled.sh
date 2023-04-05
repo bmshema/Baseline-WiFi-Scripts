@@ -43,7 +43,7 @@ cleanup () {
     cat mdns.csv | sort | uniq >> mdns2.csv
     cat probes.csv | sort | uniq >> probes2.csv
     cat accesspoints.csv | sort | uniq >> accesspoints2.csv
-    cat imcp.csv | sort | uniq >> icmp2.csv
+    cat icmp.csv | sort | uniq >> icmp2.csv
     cat tcp.csv | sort | uniq >> tcp2.csv
 
     rm -rf clients.csv dhcpserver.csv dhcpclients.csv arpreply.csv dnsclients.csv httpclients.csv browser.csv mdns.csv probes.csv accesspoints.csv icmp.csv tcp.csv
