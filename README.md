@@ -19,8 +19,8 @@ Executes 12 tshark commands to aid in wireless network mapping, resulting in csv
 ### twoPlaces.sh: 
 Takes input from packet captures collected from two separate locations and identifies MAC addresses present at both locations. Resulting output is in bothplaces.txt numbered by how many locations a MAC address was present in.
 
-### regretfulRaven.sh:
-Takes input for network SSID and hashcat mode 22000 file and executes a mask attack with Hashcat to exploit Netgear AT&T hotspot default credentials.
-
 ### pcapfix_all:
 Runs pcapfix deep scan on all pcaps within a directory, moving the original corrupt pcaps to the "busted" directory.
+
+### regretfulRaven.sh:
+Takes input for network SSID and a hashcat mode 22000 file to execute a mask attack with Hashcat to exploit Netgear AT&T hotspot default credentials.
