@@ -19,5 +19,3 @@ Executes 12 tshark commands to aid in wireless network mapping, resulting in csv
 ### twoPlaces.sh: 
 Takes input from packet captures collected from two separate locations and identifies MAC addresses present at both locations. Resulting output is in bothplaces.txt numbered by how many locations a MAC address was present in.
 
-### pcapfix_all:
-Runs pcapfix deep scan on all pcaps within a directory, moving the original corrupt pcaps to the "busted" directory.
