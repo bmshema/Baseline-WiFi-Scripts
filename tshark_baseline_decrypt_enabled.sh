@@ -17,7 +17,7 @@
 #
 shark () {
     for f in *.*cap*; do
-        tshark -r $f -o wlan.enable_decryption:TRUE -o "uat:80211_keys:\"wpa-pwd\",\"$PW:$SSID\"" -Y "wlan.bssid==$BSSID && !(wlan.fc.type_subtype==4 || wlan.fc.type_subtype==5 || wlan.fc.type_subtype==8) && !(wlan.bssid==wlan.sa)" -T fields -e wlan.bssid -e wlan.sa -E separator=, -E header=y >> clients.csv
+        tshark -r $f -o wlan.enable_decryption:TRUE -o "uat:80211_keys:\"wpa-pwd\",\"$PW:$SSID\"" -Y "wlan.bssid==$BSSID && !(wlan.fc.type_subtype<=9) && !(wlan.bssid==wlan.sa)" -T fields -e wlan.bssid -e wlan.sa -E separator=, -E header=y >> clients.csv
         tshark -r $f -o wlan.enable_decryption:TRUE -o "uat:80211_keys:\"wpa-pwd\",\"$PW:$SSID\"" -Y "wlan.bssid==$BSSID && dhcp.option.dhcp==5" -T fields -e wlan.bssid -e wlan.sa -e dhcp.option.dhcp_server_id -e dhcp.option.ip_address_lease_time -e dhcp.option.subnet_mask -e dhcp.option.router -e dhcp.option.domain_name_server -E separator=, -E header=y >> dhcpserver.csv
         tshark -r $f -o wlan.enable_decryption:TRUE -o "uat:80211_keys:\"wpa-pwd\",\"$PW:$SSID\"" -Y "wlan.bssid==$BSSID && dhcp.option.dhcp==3" -T fields -e dhcp.hw.mac_addr -e dhcp.option.requested_ip_address -e dhcp.option.hostname -E separator=, -E header=y >> dhcpclients.csv
         tshark -r $f -o wlan.enable_decryption:TRUE -o "uat:80211_keys:\"wpa-pwd\",\"$PW:$SSID\"" -Y "wlan.bssid==$BSSID && arp.opcode==2" -T fields -e arp.src.hw_mac -e arp.src.proto_ipv4 -E separator=, -E header=y >> arpreply.csv
