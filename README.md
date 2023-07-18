@@ -1,11 +1,11 @@
 # WiFi-Scripts
 Some baseline scripts for Wi-Fi Analysis, network mapping, and enrichment.
 
-### tshark-master*.sh: 
+### tshark_baseline*.sh: 
 Executes 12 tshark commands to aid in wireless network mapping, resulting in csv format files suitable for import into most network diagram applications.
+  - Access Point Information
   - Connected Clients
   - Probe Requests
-  - Access Point information
   - DHCP Server
   - DHCP Clients
   - ARP
