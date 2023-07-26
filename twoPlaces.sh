@@ -28,6 +28,9 @@ cat location2.txt | sort | uniq > location2_uniq.txt
 cat location1_uniq.txt > everybody.txt
 cat location2_uniq.txt >> everybody.txt
 
-cat everybody.txt | sort | uniq -c | sort -nr > bothplaces.txt
+cat everybody.txt | sort | uniq -c | sort -nr | grep "2 "> bothplaces.txt
+cat bothplaces.txt | grep "2 " > bothplaces2.txt
+rm bothplaces.txt
+cat bothplaces2.txt | sed 's/2 //g' | sed 's/      //g' > bothplaces.txt
 
-rm location1.txt location2.txt everybody.txt
+rm location1.txt location2.txt everybody.txt location1_uniq.txt location2_uniq.txt bothplaces2.txt
