@@ -4,8 +4,7 @@
 # Takes input from packet captures collected from two separate locations
 # and identifies MAC addresses present at both locations
 #
-# Resulting output is in bothplaces.txt numbered by how many locations a
-# MAC address was present in 
+# Resulting output is in bothplaces.txt.
 
 echo "PCAP filename from location 1: "
 read LOC1
