@@ -20,3 +20,5 @@ cat location2.txt | sort | uniq > location2_uniq.txt
 cat location1_uniq.txt > everybody.txt
 cat location2_uniq.txt >> everybody.txt
 
+cat everybody.txt | sort | uniq -c | sort -nr | grep "2 "> bothplaces.txt
+
