@@ -11,8 +11,8 @@ read LOC1
 echo "PCAP filename from location 2: "
 read LOC2
 
-tshark -r $LOC1 -Y wlan.addr -T fields -e wlan.ta >> location1.txt
-tshark -r $LOC2 -Y wlan.addr -T fields -e wlan.ta >> location2.txt
+tshark -r $LOC1 -Y wlan.fc.type_subtype==4 -T fields -e wlan.ssid >> location1.txt
+tshark -r $LOC2 -Y wlan.fc.type_subtype==4 -T fields -e wlan.ssid >> location2.txt
 
 cat location1.txt | sort | uniq > location1_uniq.txt
 cat location2.txt | sort | uniq > location2_uniq.txt
@@ -20,5 +20,6 @@ cat location2.txt | sort | uniq > location2_uniq.txt
 cat location1_uniq.txt > everybody.txt
 cat location2_uniq.txt >> everybody.txt
 
-cat everybody.txt | sort | uniq -c | sort -nr | grep "2 "> bothplaces.txt
-
+cat everybody.txt | sort | uniq -c | sort -nr | grep "  2 " > bothplaces.txt
+cat bothplaces.txt | grep "  2 " > bothplaces2.txt
+rm bothplaces.txt
