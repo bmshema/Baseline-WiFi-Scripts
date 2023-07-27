@@ -26,3 +26,4 @@ rm bothplaces.txt
 cat bothplaces2.txt | sed 's/2 //g' | sed 's/      //g' > bothplaces.txt
 
 rm location1.txt location2.txt everybody.txt location1_uniq.txt location2_uniq.txt bothplaces2.txt
+
