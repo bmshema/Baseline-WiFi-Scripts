@@ -2,15 +2,15 @@
 Some baseline scripts for Wi-Fi Analysis, network mapping, and enrichment.
 
 ### tshark_baseline.sh: 
-Executes 12 tshark commands to aid in wireless network mapping, resulting in csv format files suitable for import into Maltego or other network mapping applications.
+Executes 12 tshark commands to aid in wireless network mapping, resulting in csv format files for import into Maltego or other network mapping applications.
   - Access Point Information
-  - Connected Clients
+  - Associated Clients
   - Probe Requests
   - DHCP Server
   - DHCP Clients
   - ARP
-  - DNS Client
-  - HTTP Client
+  - DNS
+  - HTTP
   - Browser
   - MDNS
   - ICMP
