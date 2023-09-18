@@ -1,19 +1,18 @@
 #!/bin/bash
 # T-Shark Master
 # Author: bmshema
-# v1.6
 #
 #  ¯\_(ツ)_/¯
 #
-# Will programmatically apply several tshark queries while enabling decryption to multiple
-# packet captures located in a directory in any packet capture format; .pcap, .cap, .pcapng, .pcapppi
+# Applies several tshark queries with decryption enabled to any packet captures located in a 
+# directory. 
+# Formats: .pcap, .cap, .pcapng, .pcapppi
+#
 # Outputs to csv file with column headers
 #
 # Dependencies: TShark
-# Usage: Run in a directory containing packet captures and answer the two prompts regarding SSID and passphrase
+# Usage: Execute in a directory containing packet captures and answer the two prompts regarding SSID and passphrase
 # of the subject network.
-#
-# Resulting csv files can be imported to network mapping software
 #
 shark () {
     for f in *.*cap*; do
